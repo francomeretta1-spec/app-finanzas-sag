@@ -1,0 +1,23 @@
+# Archivos temporales
+*.tmp
+*.temp
+*.log
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDE y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node.js (si se agrega después)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Archivos de configuración local
+.env
+.env.local

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Finanzas SAG</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <h1>🇦🇷 App Finanzas SAG</h1>
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="mundo">🌍 Mundo</button>
+        <button class="tab-btn" data-tab="ars">🇦🇷 Argentina</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- COTIZACIONES STRIP -->
+  <div class="cotizaciones-strip">
+    <div class="cotizacion-item">
+      <span class="label">Dólar Oficial</span>
+      <span class="precio" id="strip-oficial">--</span>
+    </div>
+    <div class="cotizacion-item">
+      <span class="label">Contado con Liqui</span>
+      <span class="precio" id="strip-ccl">--</span>
+    </div>
+    <div class="cotizacion-item">
+      <span class="label">Dólar MEP</span>
+      <span class="precio" id="strip-mep">--</span>
+    </div>
+    <div class="cotizacion-item">
+      <span class="label">Riesgo País</span>
+      <span class="precio" id="strip-riesgo">--</span>
+    </div>
+  </div>
+
+  <!-- NEWS TICKER -->
+  <div class="news-ticker" id="news-ticker" style="display:none;">
+    <span class="ticker-label">📰 NOTICIAS:</span>
+    <div class="ticker-content">
+      <span class="ticker-item" id="ticker-content">Cargando noticias...</span>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR PRINCIPAL DE SECCIONES -->
+  <main class="main-container">
+
+    <!-- SECCIÓN: MUNDO (Monitor Global) -->
+    <section class="tab-content active" id="mundo-section">
+      <h2>Monitor Global</h2>
+      <p class="section-desc">Principales indicadores del mercado mundial en tiempo real</p>
+      
+      <!-- Contenedor de categorías -->
+      <div id="mundo-categories" class="mundo-categories">
+        <div class="loading"><div class="spinner"></div><p>Cargando datos...</p></div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: ARS (Finanzas Argentinas) -->
+    <section class="tab-content" id="ars-section">
+      <h2>Finanzas Argentinas</h2>
+
+      <!-- Dólar -->
+      <h3>Dólar</h3>
+      <div class="contenedor">
+        <div class="card">
+          <h4>Blue</h4>
+          <p id="blue" class="valor">Cargando...</p>
+        </div>
+        <div class="card">
+          <h4>Oficial</h4>
+          <p id="oficial" class="valor">Cargando...</p>
+        </div>
+        <div class="card">
+          <h4>MEP</h4>
+          <p id="mep" class="valor">Cargando...</p>
+        </div>
+        <div class="card">
+          <h4>CCL</h4>
+          <p id="ccl" class="valor">Cargando...</p>
+        </div>
+      </div>
+
+      <!-- Acciones Argentinas -->
+      <h3>Acciones Argentinas</h3>
+      
+      <!-- MERVAL Index -->
+      <div class="index-showcase">
+        <div class="index-card">
+          <div class="index-header">
+            <h4>MERVAL</h4>
+            <span class="badge">Índice Principal</span>
+          </div>
+          <div class="index-price">
+            <span id="merval-price" class="price">--</span>
+            <span id="merval-change" class="change">--</span>
+          </div>
+          <canvas id="merval-sparkline" width="120" height="30" style="width:100%; margin-top:10px;"></canvas>
+        </div>
+      </div>
+
+      <!-- Acciones del MERVAL -->
+      <div id="acciones-argentina-container" class="acciones-grid">
+        <div class="loading"><div class="spinner"></div><p>Cargando acciones...</p></div>
+      </div>
+
+      <!-- Plazo Fijo -->
+      <h3>Plazo Fijo</h3>
+      <div id="plazo-fijo-container" class="table-container">
+        <div class="loading"><div class="spinner"></div><p>Cargando...</p></div>
+      </div>
+
+      <!-- Fondos Comunes de Inversión -->
+      <h3>Fondos Comunes de Inversión</h3>
+      <div id="fondos-container" class="table-container">
+        <div class="loading"><div class="spinner"></div><p>Cargando fondos...</p></div>
+      </div>
+
+      <!-- Bonos Soberanos (Preview) -->
+      <h3>Bonos Soberanos USD</h3>
+      <div id="bonos-preview-container" class="table-container">
+        <div class="loading"><div class="spinner"></div><p>Cargando bonos...</p></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
+
+  <footer class="footer" style="text-align:center; padding:16px; color:#94a3b8; font-size:0.9rem;">
+    Creado por un argentino de San Andrés de Giles
+  </footer>
+</body>
+
+</html>
